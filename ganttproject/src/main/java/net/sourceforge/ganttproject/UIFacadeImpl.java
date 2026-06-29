@@ -122,6 +122,7 @@ class UIFacadeImpl extends ProgressProvider implements UIFacade {
   };
   private final DefaultIntegerOption myDpiOption = new DefaultIntegerOption("screenDpi", DEFAULT_DPI);
   private final DefaultDoubleOption myRowPaddingOption = new DefaultDoubleOption("taskRowPadding", 20.0);
+  private final DefaultBooleanOption myDarkModeOption = new DefaultBooleanOption("ui.darkMode", false);
   @Override
   public IntegerOption getDpiOption() {
     return myDpiOption;
@@ -209,9 +210,10 @@ class UIFacadeImpl extends ProgressProvider implements UIFacade {
       }
     });
 
-    GPOption[] options = new GPOption[]{myLafOption, myAppFontOption, myChartFontOption, myRowPaddingOption, myDpiOption, myLanguageOption, dateFormatSwitchOption, shortDateFormatOption,
+    GPOption[] options = new GPOption[]{myLafOption, myAppFontOption, myChartFontOption, myRowPaddingOption, myDpiOption, myDarkModeOption, myLanguageOption, dateFormatSwitchOption, shortDateFormatOption,
         dateSampleOption};
     GPOptionGroup myOptions = new GPOptionGroup("ui", options);
+    myDarkModeOption.addChangeValueListener(event -> appearanceManager.setDarkMode(myDarkModeOption.isChecked()));
     I18N i18n = new OptionsPageBuilder.I18N();
     myOptions.setI18Nkey(i18n.getCanonicalOptionLabelKey(myLafOption), "looknfeel");
     myOptions.setI18Nkey(i18n.getCanonicalOptionLabelKey(myLanguageOption), "language");

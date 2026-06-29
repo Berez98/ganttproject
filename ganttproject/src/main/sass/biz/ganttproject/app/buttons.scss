@@ -21,7 +21,7 @@
 @mixin btn-normal($border: derive($gp-light-gray, -20%), $bg: $gp-light-gray) {
   -fx-background-color: $border, $bg;
   -fx-background-insets: 0, 1;
-  -fx-background-radius: 5;
+  -fx-background-radius: $radius-md;
 }
 
 @mixin btn-hovered($border: derive($gp-light-gray, -20%), $bg: derive($gp-light-gray, 20%)) {
@@ -32,7 +32,7 @@
 @mixin btn-focused($border: derive($gp-medium-gray, -20%), $bg: derive($gp-light-gray, 0%)) {
   -fx-background-color: $border, $bg;
   -fx-background-insets: 0, 1;
-  -fx-background-radius: 5, 3;
+  -fx-background-radius: $radius-md, $radius-sm;
   -fx-border-color: transparent;
   -fx-border-width: 0;
 }

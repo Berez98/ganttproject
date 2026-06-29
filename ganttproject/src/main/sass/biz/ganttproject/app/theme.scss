@@ -1,8 +1,45 @@
-$gp-orange: #ffca28;
-$gp-light-gray: #e0e0e0;
-$gp-medium-gray: #616161;
-$gp-dark-gray: #424242;
-$gp-control-background: white;
-$gp-zebra-gray: lighten($gp-light-gray, 5%);
-$gp-error: lighten(#EE3B2B, 20%);
-$gp-warning: #FFC94D;
+// =====================================================================
+// GanttProject design tokens.
+// Semantic palette below; the original $gp-* names are kept as aliases
+// so existing stylesheets keep compiling unchanged.
+// =====================================================================
+
+// --- Semantic palette ---------------------------------------------------
+$accent: #ffca28;            // brand amber
+$accent-strong: #ffb300;     // hover/pressed accent
+$neutral-900: #212121;       // primary text
+$neutral-700: #424242;       // secondary text
+$neutral-500: #616161;       // muted text / borders
+$neutral-200: #e0e0e0;       // dividers / soft fills
+$neutral-100: #f5f5f5;       // zebra / hovered surfaces
+$surface: white;             // controls / panels
+$danger: lighten(#ee3b2b, 20%);
+$warning: #ffc94d;
+$success: #43a047;
+
+// --- Backward-compatible aliases ---------------------------------------
+$gp-orange: $accent;
+$gp-light-gray: $neutral-200;
+$gp-medium-gray: $neutral-500;
+$gp-dark-gray: $neutral-700;
+$gp-control-background: $surface;
+$gp-zebra-gray: $neutral-100;
+$gp-error: $danger;
+$gp-warning: $warning;
+
+// --- Spacing scale ------------------------------------------------------
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 12px;
+$space-lg: 16px;
+$space-xl: 24px;
+
+// --- Radius & elevation -------------------------------------------------
+$radius-sm: 3px;
+$radius-md: 5px;
+$radius-lg: 8px;
+
+// --- Typography ---------------------------------------------------------
+$font-size-sm: 0.85em;
+$font-size-md: 1em;
+$font-size-lg: 1.15em;

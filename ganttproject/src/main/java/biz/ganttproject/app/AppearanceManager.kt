@@ -54,6 +54,28 @@ class AppearanceManager(private val appFontOption: DefaultFontOption) {
     setCustomDeclaration("-fx-font-size", "${font.getSizePt()}")
   }
 
+  /**
+   * Switches between the light and dark appearance by overriding the JavaFX
+   * looked-up base colors. Standard controls derive their palette from these,
+   * so the change cascades application-wide without per-stylesheet edits.
+   */
+  fun setDarkMode(enabled: Boolean) {
+    if (enabled) {
+      setCustomDeclaration("-fx-base", "#2b2b2b")
+      setCustomDeclaration("-fx-background", "#1e1e1e")
+      setCustomDeclaration("-fx-control-inner-background", "#2b2b2b")
+      setCustomDeclaration("-fx-text-base-color", "#e0e0e0")
+      setCustomDeclaration("-fx-accent", "#ffca28")
+    } else {
+      removeCustomDeclaration("-fx-base")
+      removeCustomDeclaration("-fx-background")
+      removeCustomDeclaration("-fx-control-inner-background")
+      removeCustomDeclaration("-fx-text-base-color")
+      removeCustomDeclaration("-fx-accent")
+    }
+    FXUtil.runLater { reloadCustomCss(Window.getWindows()) }
+  }
+
   fun reloadCustomCss(windows: List<Window>) {
     windows.forEach { w ->
       w.scene?.let {
